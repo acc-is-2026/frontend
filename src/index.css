@@ -1,0 +1,19 @@
+:root {
+  --app-background: #111111;
+}
+
+body {
+  background-color: var(--app-background);
+  color: var(--mantine-color-text);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

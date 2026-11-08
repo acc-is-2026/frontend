@@ -1,0 +1,117 @@
+import { useResetPasswordForm } from "@/hooks/auth/useResetPasswordForm";
+import {
+  Alert,
+  Button,
+  Center,
+  Paper,
+  PasswordInput,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from "@mantine/core";
+import { IconAlertCircle, IconArrowLeft, IconLock } from "@tabler/icons-react";
+import { Form, Link } from "react-router-dom";
+
+const ResetPassword = () => {
+  const {
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    error,
+    isLoading,
+    handleSubmit,
+  } = useResetPasswordForm();
+
+  return (
+    <Center mih={{ base: "auto", sm: "80vh" }}>
+      <Paper
+        withBorder
+        radius="lg"
+        p={{ base: "xl", lg: 48 }}
+        w="100%"
+        maw={570}
+        shadow="sm"
+      >
+        <Stack align="center" mb={40} gap="xs">
+          <ThemeIcon size={64} mb="sm">
+            <IconLock size={32} />
+          </ThemeIcon>
+
+          <Title ta="center" order={1} size="h3">
+            Reset password
+          </Title>
+
+          <Text ta="center" c={"dimmed"} size="sm">
+            Choose a new password for your account.
+          </Text>
+        </Stack>
+
+        <Form onSubmit={handleSubmit}>
+          <Stack gap="md">
+            <PasswordInput
+              label="Password"
+              placeholder="••••••••"
+              leftSection={<IconLock size={18} />}
+              withAsterisk
+              value={password}
+              onChange={(e) => setPassword(e.currentTarget.value)}
+            />
+            <PasswordInput
+              label="Confirm password"
+              placeholder="••••••••"
+              leftSection={<IconLock size={18} />}
+              withAsterisk
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.currentTarget.value)}
+            />
+
+            {error && (
+              <Alert
+                variant="light"
+                color="red"
+                radius="md"
+                icon={<IconAlertCircle size={18} />}
+                mt="sm"
+              >
+                {error}
+              </Alert>
+            )}
+
+            <Button
+              type="submit"
+              size="lg"
+              radius="md"
+              fullWidth
+              mt="xl"
+              loading={isLoading}
+            >
+              Reset password
+            </Button>
+
+            <Text
+              component={Link}
+              to={"/login"}
+              c="primary"
+              fw={600}
+              size="sm"
+              mt="xs"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+              }}
+            >
+              <IconArrowLeft size={16} stroke={2} />
+              Back to log in
+            </Text>
+          </Stack>
+        </Form>
+      </Paper>
+    </Center>
+  );
+};
+
+export default ResetPassword;

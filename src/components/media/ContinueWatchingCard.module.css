@@ -1,0 +1,45 @@
+.card {
+  width: clamp(240px, 26vw, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.card:hover .thumbnail,
+.card:focus-visible .thumbnail {
+  border-color: var(--mantine-color-primary-6);
+  box-shadow: 0 0 0 2px var(--mantine-color-primary-6);
+}
+
+.dateBadge {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: rgba(11, 13, 18, 0.75);
+  color: white;
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

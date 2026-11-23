@@ -7,6 +7,7 @@ import Register from "@/pages/auth/Register";
 import ForgotPassword from "@/pages/auth/ForgotPassword";
 import ResetPassword from "@/pages/auth/ResetPassword";
 import NotFound from "@/pages/notFound/NotFound";
+import { Home } from "@/pages/home/Home";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,12 @@ const router = createBrowserRouter([
     children: [
       {
         element: <ProtectedRoute />,
-        children: [],
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+        ],
       },
     ],
   },

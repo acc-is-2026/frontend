@@ -1,0 +1,10 @@
+.titleLink {
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+
+.titleLink:hover {
+  color: var(--mantine-color-primary-6);
+}

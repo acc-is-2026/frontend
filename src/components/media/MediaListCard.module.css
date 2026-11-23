@@ -1,0 +1,92 @@
+.card {
+  border-radius: var(--mantine-radius-md);
+  overflow: hidden;
+  background-color: var(--mantine-color-dark-8);
+  border: 1px solid var(--mantine-color-dark-7);
+  transition: border-color 200ms ease;
+}
+
+.card:hover {
+  border-color: var(--mantine-color-primary-6);
+}
+
+.posterWrapper {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 2;
+  user-select: none;
+}
+
+.posterImage {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--mantine-radius-md);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.backdropWrapper {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.backdropGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--mantine-color-dark-8) 0%,
+    transparent 60%
+  );
+  z-index: 0;
+}
+
+.textContainer {
+  z-index: 1;
+  min-width: 0;
+}
+
+.metadataItem {
+  animation: metadata-enter 120ms ease-out both;
+}
+
+@keyframes metadata-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metadataItem {
+    animation: none;
+  }
+}
+
+.badgesContainer {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+}
+
+.iconBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(11, 13, 18, 0.65);
+  border-radius: 100%;
+  padding: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

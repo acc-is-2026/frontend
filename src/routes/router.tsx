@@ -8,6 +8,7 @@ import ForgotPassword from "@/pages/auth/ForgotPassword";
 import ResetPassword from "@/pages/auth/ResetPassword";
 import NotFound from "@/pages/notFound/NotFound";
 import { Home } from "@/pages/home/Home";
+import List from "@/pages/list/List";
 import { Search } from "@/pages/search/Search";
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "list",
+            element: <List />,
           },
           {
             path: "search",
